@@ -15,8 +15,16 @@ const Company = {
     db.jobs.list().filter((job) => job.companyId === company.id),
 };
 
+const Mutation = {
+    createJob : (root, {input}) => {
+        const id =  db.jobs.create(input);
+        return db.jobs.get(id)
+    }
+}
+
 module.exports = {
   Query,
   Company,
   Job,
+  Mutation
 };

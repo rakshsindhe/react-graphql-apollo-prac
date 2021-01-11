@@ -17,7 +17,7 @@ export const graphqlRequests = async (query, variables = {}) => {
     const message = result.errors.map((e) => e.message).join('\n');
     throw new Error(message);
   }
-  console.log('RESSSS = ', result);
+
   return result.data;
 };
 
@@ -35,7 +35,7 @@ export const loadJobs = async () => {
     }
     `;
   const response = await graphqlRequests(query);
-  console.log('response = ', response);
+
   return response.jobs;
 };
 
@@ -52,7 +52,7 @@ export const fetchJobDetails = async (id) => {
         } }`;
 
   const result = await graphqlRequests(query, { id });
-  console.log('Result = ', result);
+
   return result.job;
 };
 
@@ -71,6 +71,25 @@ export const fetchCompanyDetails = async (id) => {
   }`;
 
   const result = await graphqlRequests(query, { id });
-  console.log('Result = ', result);
+
   return result.company;
+};
+
+export const createJob = async (input) => {
+  const mutation = `
+    mutation CreateJob($input: CreateJobInput){
+        job : createJob(input: $input){
+          id
+          title
+          description
+          company{
+            id
+            name
+          }
+        }
+      }`;
+
+  const result = await graphqlRequests(mutation, { input });
+
+  return result.job;
 };

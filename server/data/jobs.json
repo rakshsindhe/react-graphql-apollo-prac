@@ -16,5 +16,17 @@
     "companyId": "SJV0-wdOM",
     "title": "Full-Stack Developer",
     "description": "We are looking for a Full-Stack Developer familiar with Node.js, Express, and React."
+  },
+  {
+    "id": "ryZM5J9CD",
+    "title": "Data Scientist",
+    "description": "Test",
+    "companyId": "SJV0-wdOM"
+  },
+  {
+    "id": "HkkxGx9Cw",
+    "companyId": "HJRa-DOuG",
+    "title": "Software Developer Analyst 1",
+    "description": "Software Dev Analyst for developing MERN Apps"
   }
 ]
